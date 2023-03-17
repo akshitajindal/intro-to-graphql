@@ -10,6 +10,31 @@ import user from './types/user/user.resolvers'
 const types = ['product', 'coupon', 'user']
 
 export const start = async () => {
+  // type Cat {
+  //   name: String
+  //   age: Int!
+  //   bestFriends: Cat!
+  // }
+
+  // input CatInput {
+  //   name: String
+  //   age: Int!
+  //   bestFriends: Cat!
+  // }
+
+  // type Car {
+  //   name: String
+  // }
+
+  // type Mutation {
+  //   newCat(input: CatInput!): Cat!
+  // }
+
+  // type Query {
+  //   myCat: Cat
+  //   cats: [Cat]
+  //   hello: String
+  // }
   const rootSchema = `
     schema {
       query: Query
