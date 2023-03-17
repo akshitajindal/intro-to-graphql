@@ -44,10 +44,10 @@ input UpdateProductInput {
   range: String
 }
 
-
 extend type Query {
   products: [Product]!
   product(id: ID!): Product!
+  getData: Product!
 }
 
 extend type Mutation {
