@@ -9,8 +9,20 @@ import user from './types/user/user.resolvers'
 
 const types = ['product', 'coupon', 'user']
 
+// server side is where we create our schema and resolvers. Client side is where we run the queries.
+
 export const start = async () => {
   const rootSchema = `
+    type Cat {
+      name: String
+      age: Int!
+    }
+
+    type Query {
+      myCat: Cat
+      hello: String
+    }
+
     schema {
       query: Query
     }
@@ -19,7 +31,16 @@ export const start = async () => {
 
   const server = new ApolloServer({
     typeDefs: [rootSchema],
-    resolvers: {},
+    resolvers: {
+      Query: {
+        myCat() {
+          return { name: 'Garfield' }
+        },
+        hello() {
+          return 'hello'
+        }
+      }
+    },
     context({ req }) {
       // use the authenticate function from utils to auth req, its Async!
       return { user: null }
